@@ -7,14 +7,9 @@ function Movieslist() {
   const movies = useSelector((state) => state.movies.movies);
   return (
     <div className="movies-list">
-      {movies?.map((ele) => {
+      {movies?.map((movie) => {
         return (
-          <Card
-            key={movies.indexOf(ele)}
-            movie={ele}
-            name={ele.Title}
-            image={ele.Poster}
-          />
+          <Card key={movie.id} title={movie.title} image={movie.poster_path} />
         );
       })}
     </div>

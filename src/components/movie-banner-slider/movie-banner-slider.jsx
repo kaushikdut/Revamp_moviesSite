@@ -36,7 +36,6 @@ const MovieBannerSlider = () => {
               ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
               : null,
           }));
-          console.log(updatedMovies);
           setMovies(updatedMovies);
         }
       } catch (err) {

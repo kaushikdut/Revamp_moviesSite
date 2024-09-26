@@ -14,8 +14,10 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <div className="main-body">
-          <Sidebar />
-          <App />
+          <Sidebar className="sidebar" />
+          <div className="main-content">
+            <App />
+          </div>
         </div>
       </BrowserRouter>
     </Provider>
