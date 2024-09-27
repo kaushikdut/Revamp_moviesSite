@@ -36,3 +36,8 @@ h2 {
   background-color: #ccc;
   color: black;
 }
+
+.pagination .navigation-btn:disabled {
+  opacity: 0;
+  cursor: default;
+}

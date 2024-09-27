@@ -56,12 +56,39 @@ const Homepage = () => {
     ));
   };
 
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   return (
     <div className="homepage">
       <h2>Trending</h2>
       <Movieslist />
 
-      <div className="pagination">{renderPagination()}</div>
+      <div className="pagination">
+        <button
+          onClick={handlePreviousPage}
+          className="navigation-btn"
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        {renderPagination()}
+        <button
+          onClick={handleNextPage}
+          className="navigation-btn"
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
