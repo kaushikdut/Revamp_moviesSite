@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { setMovies } from "../../store/slice/movies/movies";
 
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Homepage = () => {
   const pathname = window.location.search;
   const page = pathname.replace("?page=", "");
