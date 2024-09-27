@@ -13,11 +13,13 @@ import {
   MdStarHalf,
   MdStarOutline,
 } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const MovieBannerSlider = () => {
   const [movies, setMovies] = useState([]);
   const prevButtonRef = useRef(null);
   const nextButtonRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
@@ -37,6 +39,7 @@ const MovieBannerSlider = () => {
               : null,
           }));
           setMovies(updatedMovies);
+          console.log(updatedMovies);
         }
       } catch (err) {
         console.log("Failed to fetch trending movies", err);
@@ -45,6 +48,10 @@ const MovieBannerSlider = () => {
 
     fetchTrendingMovies();
   }, []);
+
+  const handleClick = (id) => {
+    navigate(`/movies/${id}`);
+  };
 
   const renderRating = (ratingValue) => {
     const totalStars = 5;
@@ -101,7 +108,7 @@ const MovieBannerSlider = () => {
               <h1 style={{ textTransform: "uppercase" }}>{movie.title}</h1>
               {renderRating(movie.vote_average)}
               <p>{movie.overview}</p>
-              <button>Watch Now</button>
+              <button onClick={() => handleClick(movie.id)}>Watch Now</button>
             </div>
           </SwiperSlide>
         ))}
