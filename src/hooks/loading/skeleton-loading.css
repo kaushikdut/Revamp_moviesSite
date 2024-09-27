@@ -1,0 +1,30 @@
+.skeleton-card {
+  height: 100%;
+  width: 100%;
+  background: #51515100;
+  padding: 10px;
+}
+
+.skeleton-card::after {
+  width: 100%;
+  height: 100%;
+  display: block;
+  content: "";
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.036),
+    transparent
+  );
+
+  /* Adding animation */
+  animation: loading 1s infinite;
+}
+
+/* Loading Animation */
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}

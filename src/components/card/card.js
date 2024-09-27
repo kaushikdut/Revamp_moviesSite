@@ -1,12 +1,12 @@
 import React from "react";
 import "./card.css";
-import Loading from "../../hooks/loading";
+import SkeletonLoading from "../../hooks/loading/skeleton-loading";
 
 function Card({ image, title, loading }) {
   return (
     <div className="card-container">
       {loading ? (
-        <Loading />
+        <SkeletonLoading />
       ) : (
         <>
           <img
