@@ -8,7 +8,6 @@ export const fetchPopularMovies = async (type, page) => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/${type}?api_key=${apiKey}&page=${page}`
     );
-    console.log("Api", response.data);
     return response.data;
   } catch (err) {
     console.log("Failed to fetch popular movies", err);

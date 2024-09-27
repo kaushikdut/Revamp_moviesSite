@@ -9,12 +9,7 @@ function Card({ image, title, loading }) {
         <SkeletonLoading />
       ) : (
         <>
-          <img
-            src={image}
-            alt="img"
-            className="image"
-            onLoad={(e) => console.log(e)}
-          />
+          <img src={image} alt="img" className="image" />
           <div className="card-info">
             <h3>{title}</h3>
           </div>

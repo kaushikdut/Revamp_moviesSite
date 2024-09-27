@@ -6,13 +6,24 @@ import { useDispatch } from "react-redux";
 import { setMovies } from "../../store/slice/movies/movies";
 
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 const Homepage = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const pathname = window.location.search;
+  const page = pathname.replace("?page=", "");
+
+  const [currentPage, setCurrentPage] = useState(Number(page) || 1);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const newParams = new URLSearchParams();
+  newParams.set("page", currentPage);
+  const newParamsString = newParams.toString();
 
   useEffect(() => {
+    navigate(`?${newParamsString}`);
+
     try {
       setLoading(true);
       fetchPopularMovies("popular", currentPage).then((data) => {
