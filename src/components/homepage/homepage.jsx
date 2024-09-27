@@ -4,23 +4,32 @@ import { useEffect, useState } from "react";
 import { fetchPopularMovies } from "../../api/tmdbApi";
 import { useDispatch } from "react-redux";
 import { setMovies } from "../../store/slice/movies/movies";
+
+import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 const Homepage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchPopularMovies("popular", currentPage).then((data) => {
-      setTotalPages(data.total_pages);
-      const updatedMovies = data.results.map((movie) => ({
-        ...movie,
-        poster_path: movie.poster_path
-          ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-          : null,
-      }));
+    try {
+      setLoading(true);
+      fetchPopularMovies("popular", currentPage).then((data) => {
+        setTotalPages(data.total_pages);
+        const updatedMovies = data.results.map((movie) => ({
+          ...movie,
+          poster_path: movie.poster_path
+            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            : null,
+        }));
 
-      dispatch(setMovies(updatedMovies));
-    });
+        dispatch(setMovies(updatedMovies));
+        setLoading(false);
+      });
+    } catch (error) {
+      console.error("Failed to fetch popular movies", error);
+    }
   }, [currentPage]);
 
   const handlePageChange = (pageNumber) => {
@@ -34,12 +43,29 @@ const Homepage = () => {
       pages.push(i);
     }
 
-    if (totalPages > 8) {
-      pages.push("...");
+    if (currentPage > 8) {
+      pages.splice(1, 0, "...");
+      pages.splice(2, 7);
 
-      if (currentPage < totalPages - 2) {
-        pages.push(totalPages);
+      for (
+        let j = currentPage - 3;
+        j < Math.min(currentPage, totalPages);
+        j++
+      ) {
+        pages.push(j);
       }
+
+      for (
+        let k = currentPage;
+        k <= Math.min(currentPage + 4, totalPages);
+        k++
+      ) {
+        pages.push(k);
+      }
+    }
+
+    if (totalPages > 8) {
+      pages.splice(pages.length, 0, "...");
     }
 
     return pages.map((page, index) => (
@@ -70,7 +96,7 @@ const Homepage = () => {
   return (
     <div className="homepage">
       <h2>Trending</h2>
-      <Movieslist />
+      <Movieslist loading={loading} />
 
       <div className="pagination">
         <button
@@ -78,7 +104,7 @@ const Homepage = () => {
           className="navigation-btn"
           disabled={currentPage === 1}
         >
-          Previous
+          <MdNavigateBefore />
         </button>
         {renderPagination()}
         <button
@@ -86,7 +112,7 @@ const Homepage = () => {
           className="navigation-btn"
           disabled={currentPage === totalPages}
         >
-          Next
+          <MdNavigateNext />
         </button>
       </div>
     </div>
