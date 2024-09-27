@@ -14,6 +14,7 @@ function Movieslist({ loading }) {
             title={movie.title}
             image={movie.poster_path}
             loading={loading}
+            id={movie.id}
           />
         );
       })}

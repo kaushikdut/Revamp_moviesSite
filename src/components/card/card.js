@@ -1,10 +1,15 @@
 import React from "react";
 import "./card.css";
 import SkeletonLoading from "../../hooks/loading/skeleton-loading";
+import { useNavigate } from "react-router-dom";
 
-function Card({ image, title, loading }) {
+function Card({ image, title, loading, id }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/movies/${id}`);
+  };
   return (
-    <div className="card-container">
+    <div className="card-container" onClick={handleClick}>
       {loading ? (
         <SkeletonLoading />
       ) : (
