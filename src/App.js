@@ -4,8 +4,10 @@ import MovieBannerSlider from "./components/movie-banner-slider/movie-banner-sli
 import Homepage from "./components/homepage/homepage";
 import { Route, Routes } from "react-router-dom";
 import Movies from "./components/movies/movies";
+import { useSelector } from "react-redux";
 
 function App() {
+  const isSidebarOpen = useSelector((state) => state.movies.isSidebarOpen);
   return (
     <div className="App">
       <Navbar />

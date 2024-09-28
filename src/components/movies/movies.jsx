@@ -23,7 +23,7 @@ const Movies = () => {
           className="backdrop"
         />
 
-        <div className="movie-info-left">
+        <div className="movie-info-left grid-left">
           <div className="movie-poster">
             <img
               src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
@@ -43,10 +43,11 @@ const Movies = () => {
           <h1>{movie?.title}</h1>
           <p>{movie?.genres?.map((genre) => genre.name).join(" | ")}</p>
         </div>
-
-        <div className="movie-info-right">
-          <h2>Overview</h2>
-          <p>{movie?.overview}</p>
+        <div className="grid-right">
+          <div className="movie-info-right">
+            <h2>Overview</h2>
+            <p>{movie?.overview}</p>
+          </div>
         </div>
       </div>
     </div>

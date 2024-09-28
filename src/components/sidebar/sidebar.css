@@ -13,6 +13,17 @@
   padding: 1rem 0;
 }
 
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.close-btn:hover {
+  transform: scale(105%);
+  transition: all 0.1s ease-in-out;
+}
+
 @media (max-width: 768px) {
   .sidebar {
     display: none;

@@ -5,6 +5,7 @@
   flex-direction: column;
   max-width: 100%;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 .App-body {
@@ -19,4 +20,10 @@
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    overflow-x: hidden;
+  }
 }

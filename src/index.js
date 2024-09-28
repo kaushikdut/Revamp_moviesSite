@@ -13,12 +13,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <div className="main-body">
-          <Sidebar className="sidebar" />
-          <div className="main-content">
-            <App />
-          </div>
-        </div>
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

@@ -12,14 +12,13 @@
   background: red;
 }
 
-.navbar-sm {
+.sidebar-close {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sidebar-open {
   display: none;
 }
 
 /* #101010 */
-
-@media (max-width: 768px) {
-  .navbar-sm {
-    display: block;
-  }
-}

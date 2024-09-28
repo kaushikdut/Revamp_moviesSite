@@ -8,9 +8,7 @@ import Logo from "../logo/logo";
 function Navbar() {
   return (
     <div className="navbar">
-      <div className="navbar-sm">
-        <Logo />{" "}
-      </div>
+      <Logo />
       <div>
         <SearchBar />
       </div>
