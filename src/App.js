@@ -5,12 +5,18 @@ import Homepage from "./components/homepage/homepage";
 import { Route, Routes } from "react-router-dom";
 import Movies from "./components/movies/movies";
 import { useSelector } from "react-redux";
+import SearchBar from "./components/search/searchBar";
 
 function App() {
   const isSidebarOpen = useSelector((state) => state.movies.isSidebarOpen);
   return (
     <div className="App">
       <Navbar />
+
+      <div className="searchbar-app">
+        <SearchBar />
+      </div>
+
       <main className="App-body">
         <Routes>
           <Route

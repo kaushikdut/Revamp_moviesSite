@@ -79,18 +79,22 @@ const Homepage = () => {
       pages.splice(pages.length, 0, "...");
     }
 
-    return pages.map((page, index) => (
-      <button
-        key={index}
-        onClick={() =>
-          typeof page === "number" ? handlePageChange(page) : null
-        }
-        disabled={page === currentPage}
-        style={{ margin: "0 0.5rem" }}
-      >
-        {page}
-      </button>
-    ));
+    return (
+      <div className="pagination-list">
+        {pages.map((page, index) => (
+          <button
+            key={index}
+            onClick={() =>
+              typeof page === "number" ? handlePageChange(page) : null
+            }
+            disabled={page === currentPage}
+            style={{ margin: "0 0.5rem" }}
+          >
+            {page}
+          </button>
+        ))}
+      </div>
+    );
   };
 
   const handlePreviousPage = () => {

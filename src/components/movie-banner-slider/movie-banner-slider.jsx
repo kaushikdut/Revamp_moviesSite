@@ -39,7 +39,6 @@ const MovieBannerSlider = () => {
               : null,
           }));
           setMovies(updatedMovies);
-          console.log(updatedMovies);
         }
       } catch (err) {
         console.log("Failed to fetch trending movies", err);

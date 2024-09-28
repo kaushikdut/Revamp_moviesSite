@@ -9,9 +9,10 @@ function Navbar() {
   return (
     <div className="navbar">
       <Logo />
-      <div>
+      <div className="searchBar">
         <SearchBar />
       </div>
+
       <div className="right">
         <MdFavorite />
       </div>

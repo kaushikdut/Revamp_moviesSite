@@ -10,7 +10,6 @@ const Movies = () => {
   useEffect(() => {
     fetchMovie(id).then((res) => {
       setMovie(res);
-      console.log(res);
     });
   }, []);
 

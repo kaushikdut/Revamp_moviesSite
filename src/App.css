@@ -22,8 +22,17 @@
   position: relative;
 }
 
+.searchbar-app {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .App {
     overflow-x: hidden;
+  }
+  .searchbar-app {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
   }
 }

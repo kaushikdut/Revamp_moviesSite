@@ -41,3 +41,31 @@ h2 {
   opacity: 0;
   cursor: default;
 }
+
+@media screen and (max-width: 768px) {
+  .pagination button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #ff0000b1;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .pagination-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .pagination-list button {
+    margin: 0 0.5rem;
+    padding: 0 0.5rem;
+    border: none;
+    background-color: #ff0000b1;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: x-small;
+  }
+}

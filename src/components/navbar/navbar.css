@@ -22,3 +22,9 @@
 }
 
 /* #101010 */
+
+@media screen and (max-width: 768px) {
+  .searchBar {
+    display: none;
+  }
+}
