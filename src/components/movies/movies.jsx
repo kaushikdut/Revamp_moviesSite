@@ -10,15 +10,14 @@ const Movies = () => {
   const [movie, setMovie] = useState({});
   const favoriteButtonRef = useRef(null);
   const videoRef = useRef(null);
+  const scrollPositionRef = useRef(0);
 
   useEffect(() => {
     fetchMovie(id).then((res) => {
       setMovie(res);
     });
 
-    if (videoRef.current) {
-      window.scrollTo({ top: 0, behavior: "auto" });
-    }
+    window.scrollTo({ top: 0 });
   }, [id]);
 
   const handleButtonClick = () => {
@@ -28,9 +27,7 @@ const Movies = () => {
   };
 
   const handleScroll = () => {
-    if (videoRef.current) {
-      videoRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    videoRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -63,6 +60,7 @@ const Movies = () => {
             <h1>{movie?.title}</h1>
             <p>{movie?.genres?.map((genre) => genre.name).join(" | ")}</p>
           </div>
+
           <div className="button-container">
             <button className="button-1" onClick={handleScroll}>
               <IoPlayOutline size={25} style={{ fontWeight: "bolder" }} /> Watch
@@ -71,11 +69,12 @@ const Movies = () => {
               className="button-2"
               ref={favoriteButtonRef}
               id="favorite-button"
-              onClick={() => handleButtonClick()}
+              onClick={handleButtonClick}
             >
               Add to favourite
             </button>
           </div>
+
           <div className="grid-right">
             <div className="movie-info-right">
               <h2>Overview</h2>
@@ -84,7 +83,8 @@ const Movies = () => {
           </div>
         </div>
       </div>
-      <Video id={id} ref={videoRef} />
+
+      <Video id={id} ref={videoRef} movie={movie} />
     </>
   );
 };

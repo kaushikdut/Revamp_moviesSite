@@ -1,5 +1,5 @@
 .video {
-  margin-top: 2rem;
+  margin: 2rem;
   width: 100%;
   height: 100%;
   display: flex;
@@ -8,10 +8,20 @@
   padding: 0 0 1rem 1rem;
 }
 
+.video iframe {
+  width: 60%;
+  height: 40rem;
+}
+
 @media screen and (max-width: 768px) {
   .video {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .video iframe {
+    width: 100%;
+    height: 25rem;
   }
 }
