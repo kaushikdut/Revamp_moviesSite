@@ -1,17 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovie } from "../../api/tmdbApi";
 import "./movies.css";
+import { IoHeart, IoPlayOutline } from "react-icons/io5";
 
 const Movies = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
+  const favoriteButtonRef = useRef(null);
 
   useEffect(() => {
     fetchMovie(id).then((res) => {
       setMovie(res);
     });
   }, []);
+
+  const handleButtonClick = () => {
+    setTimeout(() => {
+      favoriteButtonRef.current?.blur();
+    }, 400);
+  };
 
   return (
     <div className="movie">
@@ -22,7 +30,7 @@ const Movies = () => {
           className="backdrop"
         />
 
-        <div className="movie-info-left grid-left">
+        <div className="grid-left">
           <div className="movie-poster">
             <img
               src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
@@ -41,6 +49,19 @@ const Movies = () => {
           </div>
           <h1>{movie?.title}</h1>
           <p>{movie?.genres?.map((genre) => genre.name).join(" | ")}</p>
+        </div>
+        <div className="button-container">
+          <button className="button-1">
+            <IoPlayOutline size={25} style={{ fontWeight: "bolder" }} /> Watch
+          </button>
+          <button
+            className="button-2"
+            ref={favoriteButtonRef}
+            id="favorite-button"
+            onClick={() => handleButtonClick()}
+          >
+            Add to favourite
+          </button>
         </div>
         <div className="grid-right">
           <div className="movie-info-right">

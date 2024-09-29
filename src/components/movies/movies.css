@@ -9,12 +9,11 @@
   width: 100%;
   height: 80vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-rows: auto;
   gap: 1rem;
+  place-content: center;
   position: relative;
-  overflow: hidden;
 }
 
 .backdrop {
@@ -29,14 +28,15 @@
 }
 
 .grid-left {
-  width: 25rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-left: 1rem;
   text-shadow: 0 2px 2px #000;
 }
 
-.movie-info-left h1 {
+.grid-left h1 {
   font-size: 2.5rem;
   font-weight: 800;
   margin: 0;
@@ -44,11 +44,11 @@
   margin-left: 1rem;
 }
 
-.movie-info-left h2 {
+.grid-left h2 {
   font-size: medium;
   margin-top: 1rem;
 }
-.movie-info-left p {
+.grid-left p {
   margin: 0 2rem;
   font-size: small;
   color: #ffffffdf;
@@ -127,6 +127,132 @@
   }
 }
 
+/*********Movie conatiner**********/
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button-1 {
+  width: 140px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  background-color: #ff0000ca;
+  transition: all 0.2s ease;
+}
+.button-1:hover {
+  transform: scale(0.96);
+}
+
+.button-2 {
+  width: 140px;
+  height: 60px;
+  position: relative;
+  border-radius: 10px;
+  color: #ab0909;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+.button-2:hover {
+  transform: scale(0.96);
+}
+.button-2:before,
+.button-2:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+.button-2:focus:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #ff0000 20%, transparent 30%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #ff0000 15%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: topBubbles 1s ease;
+}
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+.button-2:focus::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #ff0000 15%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%),
+    radial-gradient(circle, #ff0000 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: bottomBubbles 1s ease;
+}
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+/********************* MEDIA QUERIES ************************/
+
 @media screen and (max-width: 768px) {
   .movie-details {
     grid-template-columns: 1fr;
@@ -161,6 +287,14 @@
     text-shadow: 0 2px 2px #000;
     padding: 0.5rem;
     text-align: center;
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    grid-column: 1 / -1;
   }
 }
 
