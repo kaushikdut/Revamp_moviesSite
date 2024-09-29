@@ -25,3 +25,14 @@ export const fetchMovie = async (id) => {
     console.log("Failed to fetch movie", err);
   }
 };
+
+export const fetchMovieVideos = async (id) => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
+    );
+    return response.data;
+  } catch (err) {
+    console.log("Failed to fetch movie videos", err);
+  }
+};
