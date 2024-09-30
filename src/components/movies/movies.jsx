@@ -61,24 +61,24 @@ const Movies = () => {
             <p>{movie?.genres?.map((genre) => genre.name).join(" | ")}</p>
           </div>
 
-          <div className="button-container">
-            <button className="button-1" onClick={handleScroll}>
-              <IoPlayOutline size={25} style={{ fontWeight: "bolder" }} /> Watch
-            </button>
-            <button
-              className="button-2"
-              ref={favoriteButtonRef}
-              id="favorite-button"
-              onClick={handleButtonClick}
-            >
-              Add to favourite
-            </button>
-          </div>
-
           <div className="grid-right">
             <div className="movie-info-right">
               <h2>Overview</h2>
               <p>{movie?.overview}</p>
+            </div>
+            <div className="button-container">
+              <button className="button-1" onClick={handleScroll}>
+                <IoPlayOutline size={25} style={{ fontWeight: "bolder" }} />{" "}
+                Watch
+              </button>
+              <button
+                className="button-2"
+                ref={favoriteButtonRef}
+                id="favorite-button"
+                onClick={handleButtonClick}
+              >
+                Add to favourite
+              </button>
             </div>
           </div>
         </div>
