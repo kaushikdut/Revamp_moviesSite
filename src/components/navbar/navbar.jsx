@@ -4,8 +4,13 @@ import "./navbar.css";
 import SearchBar from "../search/searchBar";
 import { MdFavorite } from "react-icons/md";
 import Logo from "../logo/logo";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
+  const handleFavourite = () => {
+    navigate("/favourite");
+  };
   return (
     <div className="navbar">
       <Logo />
@@ -13,7 +18,7 @@ function Navbar() {
         <SearchBar />
       </div>
 
-      <div className="right">
+      <div className="right" onClick={handleFavourite}>
         <MdFavorite />
       </div>
     </div>

@@ -162,19 +162,19 @@
 }
 
 .button-2 {
-  width: 140px;
+  width: 60px;
   height: 60px;
   position: relative;
-  border-radius: 15px;
+  border-radius: 50%;
   color: #fff;
   cursor: pointer;
   font-size: 14px;
-  font-weight: bold;
-  text-align: center;
   outline: none;
-  border: 2px solid #fff;
+  border: none;
   background-color: transparent;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
 }
 .button-2:hover {
   transform: scale(0.96);

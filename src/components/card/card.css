@@ -45,3 +45,10 @@
 .card-container:hover .card-info {
   opacity: 1;
 }
+
+@media screen and (max-width: 480px) {
+  .card-container {
+    width: 8rem;
+    height: 13rem;
+  }
+}

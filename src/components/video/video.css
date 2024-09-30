@@ -8,9 +8,24 @@
   padding: 0 0 1rem 1rem;
 }
 
-.video iframe {
-  width: 60%;
-  height: 40rem;
+.video-player iframe {
+  width: 100%;
+  height: 35rem;
+}
+.video-player-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.video-player {
+  width: 99%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -23,5 +38,16 @@
   .video iframe {
     width: 100%;
     height: 25rem;
+  }
+  .video-player-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  .video-player {
+    width: 100%;
+  }
+  .video-episodes {
+    width: 92%;
   }
 }

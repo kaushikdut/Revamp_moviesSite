@@ -31,8 +31,20 @@ export const fetchMovieVideos = async (id) => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
     );
+
     return response.data;
   } catch (err) {
     console.log("Failed to fetch movie videos", err);
+  }
+};
+
+export const getFavouriteMovies = async (movieId) => {
+  if (movieId) {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
+    );
+
+    const { id, title, poster_path } = await response.data;
+    return { id, title, poster_path };
   }
 };
