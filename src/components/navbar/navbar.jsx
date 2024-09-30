@@ -8,9 +8,14 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
+  const isFavourite = window.location.pathname
+    .replace("/", "")
+    .includes("favourite");
+
   const handleFavourite = () => {
     navigate("/favourite");
   };
+
   return (
     <div className="navbar">
       <Logo />
@@ -18,8 +23,8 @@ function Navbar() {
         <SearchBar />
       </div>
 
-      <div className="right" onClick={handleFavourite}>
-        <MdFavorite />
+      <div style={{ cursor: "pointer" }} onClick={handleFavourite}>
+        <MdFavorite fill={isFavourite ? "red" : "white"} size={30} />
       </div>
     </div>
   );
