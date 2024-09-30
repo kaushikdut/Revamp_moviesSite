@@ -1,7 +1,7 @@
 import React from "react";
-import "./card.css";
 import SkeletonLoading from "../../hooks/loading/skeleton-loading";
 import { useNavigate } from "react-router-dom";
+import "./card.css";
 
 function Card({ image, title, loading, id }) {
   const navigate = useNavigate();

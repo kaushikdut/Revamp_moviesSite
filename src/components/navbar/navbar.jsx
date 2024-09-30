@@ -1,10 +1,10 @@
 import React from "react";
 import "./navbar.css";
 
-import SearchBar from "../search/searchBar";
+import SearchBar from "../search-bar/searchBar";
 import { MdFavorite } from "react-icons/md";
 import Logo from "../logo/logo";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();

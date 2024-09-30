@@ -48,3 +48,24 @@ export const getFavouriteMovies = async (movieId) => {
     return { id, title, poster_path };
   }
 };
+
+export const searchMovies = async (query) => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`
+    );
+
+    const updatedMovies = response.data.results
+      .filter((movie) => movie.poster_path)
+      .map((movie) => ({
+        ...movie,
+        poster_path: movie.poster_path
+          ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+          : null,
+      }));
+
+    return updatedMovies;
+  } catch (err) {
+    console.log("Failed to search movies", err);
+  }
+};
