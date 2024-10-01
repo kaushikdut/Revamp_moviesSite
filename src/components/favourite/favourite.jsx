@@ -29,14 +29,18 @@ function Favourite() {
     <div className="favourite">
       <h1>Favourite</h1>
       <div className="favourite-container">
-        {favMovies.map((movie) => (
-          <Card
-            key={movie.id}
-            id={movie.id}
-            image={movie.poster_path}
-            title={movie.title}
-          />
-        ))}
+        {favMovies.length > 0 ? (
+          favMovies.map((movie) => (
+            <Card
+              key={movie.id}
+              id={movie.id}
+              image={movie.poster_path}
+              title={movie.title}
+            />
+          ))
+        ) : (
+          <p>No Favourite Movies selected</p>
+        )}
       </div>
     </div>
   );

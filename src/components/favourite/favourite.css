@@ -16,3 +16,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.favourite-container p {
+  text-align: center;
+  color: #696969;
+}
