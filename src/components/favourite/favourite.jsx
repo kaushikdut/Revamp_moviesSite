@@ -39,7 +39,7 @@ function Favourite() {
             />
           ))
         ) : (
-          <p>No Favourite Movies selected</p>
+          <p>No favourite movies</p>
         )}
       </div>
     </div>
